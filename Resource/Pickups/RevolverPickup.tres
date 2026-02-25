@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="base_pickup" load_steps=3 format=3 uid="uid://di7hironmdbxq"]
+
+[ext_resource type="Script" uid="uid://51oaa1il31gf" path="res://Scripts/Base_PickupResource.gd" id="1_d4qn6"]
+[ext_resource type="Texture2D" uid="uid://dptw2vlitfxt0" path="res://Sprites/GUNS/Revolver.png" id="1_kyopx"]
+
+[resource]
+script = ExtResource("1_d4qn6")
+Name = "RevolverPickup"
+Item = "Revolver"
+Sprite = ExtResource("1_kyopx")
+Type = "Weapon"
+WeaponType = "res://Resource/Weapons/Revolver.tres"
+metadata/_custom_type_script = "uid://51oaa1il31gf"

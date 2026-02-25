@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Base_Enemy" load_steps=3 format=3 uid="uid://brlfjeymw070i"]
+
+[ext_resource type="Script" uid="uid://dim3wkygfftni" path="res://Scripts/EnemyBaseResourceScript.gd" id="1_rs0f5"]
+[ext_resource type="Texture2D" uid="uid://j6d1w6e47muj" path="res://Sprites/Creatures/spitterzombie.png" id="1_yvn6n"]
+
+[resource]
+script = ExtResource("1_rs0f5")
+Name = "Spitter Zombie"
+Health = 70
+MovementSpeed = 80
+EnemySprite = ExtResource("1_yvn6n")
+ProjectileSpeed = 45.0
+metadata/_custom_type_script = "uid://dim3wkygfftni"

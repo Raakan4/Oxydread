@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=4 format=3 uid="uid://dku341f27ud5v"]
+
+[ext_resource type="Script" uid="uid://d5wjk0venniv" path="res://Scripts/Weapon.gd" id="1_ehtxx"]
+[ext_resource type="AudioStream" uid="uid://b8gtf26wx4w5f" path="res://Sounds/SFX/Gun SFX/single-pistol-gunshot-33-37187.mp3" id="1_ioukp"]
+[ext_resource type="Texture2D" uid="uid://dm86wnbwlwkt7" path="res://Sprites/GUNS/GUN.png" id="2_h7bol"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_ehtxx")
+name = &"Pistol"
+Weapontexture = ExtResource("2_h7bol")
+damage = 6.5
+FireSound = ExtResource("1_ioukp")
+FireRate = 0.5
+ShootPointPositionX = 62.64
+ShootPointPositionY = -0.442
+Canshoot = true
+ClipSize = 30
+ClipAmmo = 3
+TotalAmmo = 100
+metadata/_custom_type_script = "uid://d5wjk0venniv"

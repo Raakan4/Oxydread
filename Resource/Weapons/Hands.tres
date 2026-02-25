@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=2 format=3 uid="uid://cmjajsjcsirvb"]
+
+[ext_resource type="Script" uid="uid://d5wjk0venniv" path="res://Scripts/Weapon.gd" id="1_ut5nd"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_ut5nd")
+name = &"Hands"
+damage = 0.0
+FireRate = 0.0
+InitialRotation = 0.0
+WeaponScale = 0.0
+ShootPointPositionX = 0.0
+ShootPointPositionY = 0.0
+Canshoot = false
+ClipSize = 0
+ClipAmmo = 0
+TotalAmmo = 0
+ReloadTime = 0.0
+metadata/_custom_type_script = "uid://d5wjk0venniv"

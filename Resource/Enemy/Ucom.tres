@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Base_Enemy" load_steps=3 format=3 uid="uid://blbbfau4arovt"]
+
+[ext_resource type="Texture2D" uid="uid://b5jng73ggf8g5" path="res://Sprites/Creatures/tankredesign.png" id="1_67cvc"]
+[ext_resource type="Script" uid="uid://dim3wkygfftni" path="res://Scripts/EnemyBaseResourceScript.gd" id="1_q1tuh"]
+
+[resource]
+script = ExtResource("1_q1tuh")
+Name = "Ucom"
+Health = 400
+EnemySprite = ExtResource("1_67cvc")
+metadata/_custom_type_script = "uid://dim3wkygfftni"

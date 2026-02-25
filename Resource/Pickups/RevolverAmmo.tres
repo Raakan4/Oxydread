@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="base_pickup" load_steps=3 format=3 uid="uid://dkr6b2sux2jps"]
+
+[ext_resource type="Texture2D" uid="uid://vop0s7kbaol8" path="res://Sprites/Pickup/1956b1c08d23633f8a35f3d0de4508276747da3c.png" id="1_hgj1o"]
+[ext_resource type="Script" uid="uid://51oaa1il31gf" path="res://Scripts/Base_PickupResource.gd" id="2_o4iv4"]
+
+[resource]
+script = ExtResource("2_o4iv4")
+Name = "Revolver Ammo"
+Item = "Revolver Ammo"
+Sprite = ExtResource("1_hgj1o")
+Type = "Ammo"
+Quantity = 30
+WeaponType = "\"res://Resource/Weapons/Revolver.tres\""
+StartingAmmoQuantity = 0
+StartingClipAmmoQuantity = 0
+metadata/_custom_type_script = "uid://51oaa1il31gf"

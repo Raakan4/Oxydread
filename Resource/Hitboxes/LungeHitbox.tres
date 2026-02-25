@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="HitboxBase" load_steps=2 format=3 uid="uid://bnpyxsq3upb65"]
+
+[ext_resource type="Script" uid="uid://crk5v7dhfvuxf" path="res://Scripts/BaseHitbox.gd" id="1_ijlni"]
+
+[resource]
+script = ExtResource("1_ijlni")
+Positionx = -2.045
+Positiony = 8.0
+ScaleX = 2.198
+OwnedByEnemy = true
+damage = 5
+ScaleY = 4.684
+offsetX = Vector2(11.955, 0)
+knockback = 3.0
+metadata/_custom_type_script = "uid://crk5v7dhfvuxf"

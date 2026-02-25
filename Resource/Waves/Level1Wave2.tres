@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WaveManager" load_steps=2 format=3 uid="uid://b4en7owtsv13t"]
+
+[ext_resource type="Script" uid="uid://dvhksc7fnytpy" path="res://WaveManagerClass.gd" id="1_nwl1i"]
+
+[resource]
+script = ExtResource("1_nwl1i")
+WaveID = "Level1Wave2"
+Waves = 3
+metadata/_custom_type_script = "uid://dvhksc7fnytpy"

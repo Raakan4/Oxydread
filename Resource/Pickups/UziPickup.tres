@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="base_pickup" load_steps=3 format=3 uid="uid://ddblxh78u0syy"]
+
+[ext_resource type="Texture2D" uid="uid://cehhc4hhh2ncu" path="res://Sprites/GUNS/Uzi.png" id="1_rqyxu"]
+[ext_resource type="Script" uid="uid://51oaa1il31gf" path="res://Scripts/Base_PickupResource.gd" id="2_h4hcx"]
+
+[resource]
+script = ExtResource("2_h4hcx")
+Name = "UziPickup"
+Item = "Uzi"
+Sprite = ExtResource("1_rqyxu")
+Type = "Weapon"
+WeaponType = "res://Resource/Weapons/Uzi.tres"
+metadata/_custom_type_script = "uid://51oaa1il31gf"

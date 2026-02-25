@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="base_pickup" format=3 uid="uid://cy320s1jmm3ku"]
+
+[ext_resource type="Texture2D" uid="uid://dnxjukguvsiwi" path="res://Sprites/GUNS/RPG.png" id="1_bgi31"]
+[ext_resource type="Script" uid="uid://51oaa1il31gf" path="res://Scripts/Base_PickupResource.gd" id="2_p21ql"]
+
+[resource]
+script = ExtResource("2_p21ql")
+Name = "GrenadeLauncherrPickup"
+Item = "GrenadeLauncher"
+Sprite = ExtResource("1_bgi31")
+Type = "Weapon"
+WeaponType = "res://Resource/Weapons/GrenadeLauncher.tres"
+metadata/_custom_type_script = "uid://51oaa1il31gf"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="HitboxBase" load_steps=2 format=3 uid="uid://ciumgyls1ote4"]
+
+[ext_resource type="Script" uid="uid://crk5v7dhfvuxf" path="res://Scripts/BaseHitbox.gd" id="1_yhu7s"]
+
+[resource]
+script = ExtResource("1_yhu7s")
+Positionx = 0.0
+Positiony = 0.0
+ScaleX = 0.0
+Rotation = 0.0
+OwnedByEnemy = false
+damage = 0
+ScaleY = 0.0
+metadata/_custom_type_script = "uid://crk5v7dhfvuxf"

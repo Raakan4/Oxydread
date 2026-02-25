@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Weapons" load_steps=4 format=3 uid="uid://3ouqui0jsv4n"]
+
+[ext_resource type="Texture2D" uid="uid://cehhc4hhh2ncu" path="res://Sprites/GUNS/Uzi.png" id="1_awho7"]
+[ext_resource type="Script" uid="uid://d5wjk0venniv" path="res://Scripts/Weapon.gd" id="1_gfda0"]
+[ext_resource type="AudioStream" uid="uid://b8gtf26wx4w5f" path="res://Sounds/SFX/Gun SFX/single-pistol-gunshot-33-37187.mp3" id="1_pb7us"]
+
+[resource]
+script = ExtResource("1_gfda0")
+name = &"Uzi"
+Weapontexture = ExtResource("1_awho7")
+damage = 5.0
+FireSound = ExtResource("1_pb7us")
+FireRate = 0.2
+Canshoot = true
+ClipSize = 30
+ClipAmmo = 3
+TotalAmmo = 100
+ReloadTime = 1.0
+metadata/_custom_type_script = "uid://d5wjk0venniv"

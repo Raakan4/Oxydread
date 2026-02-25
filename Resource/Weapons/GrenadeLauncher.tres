@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Weapons" format=3 uid="uid://ukamtl2a4ed1"]
+
+[ext_resource type="AudioStream" uid="uid://b8gtf26wx4w5f" path="res://Sounds/SFX/Gun SFX/single-pistol-gunshot-33-37187.mp3" id="1_dkfm2"]
+[ext_resource type="Texture2D" uid="uid://dnxjukguvsiwi" path="res://Sprites/GUNS/RPG.png" id="2_dkfm2"]
+[ext_resource type="Script" uid="uid://d5wjk0venniv" path="res://Scripts/Weapon.gd" id="3_3kfj4"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("3_3kfj4")
+name = &"Nade Launcher"
+Weapontexture = ExtResource("2_dkfm2")
+damage = 6.5
+FireSound = ExtResource("1_dkfm2")
+FireRate = 0.5
+ShootPointPositionX = 62.64
+ShootPointPositionY = -0.442
+Canshoot = true
+ClipSize = 3
+ClipAmmo = 3
+TotalAmmo = 20
+ReloadTime = 1.0
+explosive = true
+metadata/_custom_type_script = "uid://d5wjk0venniv"

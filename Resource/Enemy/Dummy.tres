@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Base_Enemy" format=3 uid="uid://defrdr4ee2vt1"]
+
+[ext_resource type="Texture2D" uid="uid://dvgd3ofu0bhua" path="res://Sprites/Creatures/Dummy.png" id="1_fdrbh"]
+[ext_resource type="Script" uid="uid://dim3wkygfftni" path="res://Scripts/EnemyBaseResourceScript.gd" id="2_pl4li"]
+
+[resource]
+script = ExtResource("2_pl4li")
+Health = 30
+EnemySprite = ExtResource("1_fdrbh")
+doubledspeed = 1
+metadata/_custom_type_script = "uid://dim3wkygfftni"

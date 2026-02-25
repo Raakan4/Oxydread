@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Weapons" format=3 uid="uid://dety2uodaghmo"]
+
+[ext_resource type="AudioStream" uid="uid://b8gtf26wx4w5f" path="res://Sounds/SFX/Gun SFX/single-pistol-gunshot-33-37187.mp3" id="1_byhuj"]
+[ext_resource type="Script" uid="uid://d5wjk0venniv" path="res://Scripts/Weapon.gd" id="1_kyasr"]
+[ext_resource type="Texture2D" uid="uid://dptw2vlitfxt0" path="res://Sprites/GUNS/Revolver.png" id="1_q4ps6"]
+[ext_resource type="AudioStream" uid="uid://c7m0oh4c63rsj" path="res://Sounds/SFX/Gun SFX/clean-revolver-reload-6889.mp3" id="2_whqc3"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_kyasr")
+name = &"Revolver"
+Weapontexture = ExtResource("1_q4ps6")
+damage = 15.0
+FireSound = ExtResource("1_byhuj")
+FireRate = 1.0
+Canshoot = true
+ClipSize = 6
+ClipAmmo = 6
+TotalAmmo = 100
+ReloadTime = 0.5
+ReloadSound = ExtResource("2_whqc3")
+metadata/_custom_type_script = "uid://d5wjk0venniv"

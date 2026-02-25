@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Base_Enemy" load_steps=3 format=3 uid="uid://byt1etv7ck1eu"]
+
+[ext_resource type="Script" uid="uid://dim3wkygfftni" path="res://Scripts/EnemyBaseResourceScript.gd" id="1_pfk4o"]
+[ext_resource type="Texture2D" uid="uid://dhdpadd3jnhw4" path="res://Sprites/Creatures/HeartBomberZombie.png" id="1_rkq6l"]
+
+[resource]
+script = ExtResource("1_pfk4o")
+Name = "ExplodingZombie"
+Health = 30
+MovementSpeed = 250
+EnemySprite = ExtResource("1_rkq6l")
+explodeondeath = true
+metadata/_custom_type_script = "uid://dim3wkygfftni"
