@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cvfdxkkmdqknj"
+path="res://.godot/imported/JDSherbert - Pixel Explosions SFX Pack - Rocket (2).ogg-9fb568568072c6f24ddcacca7b708e3b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/pixel explosions or whatever/JDSherbert - Pixel Explosions SFX Pack - Rocket (2).ogg"
+dest_files=["res://.godot/imported/JDSherbert - Pixel Explosions SFX Pack - Rocket (2).ogg-9fb568568072c6f24ddcacca7b708e3b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

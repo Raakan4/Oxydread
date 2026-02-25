@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7m0oh4c63rsj"
+path="res://.godot/imported/clean-revolver-reload-6889.mp3-12b222ab659e72dd4080df5c66c065f7.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/Gun SFX/clean-revolver-reload-6889.mp3"
+dest_files=["res://.godot/imported/clean-revolver-reload-6889.mp3-12b222ab659e72dd4080df5c66c065f7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

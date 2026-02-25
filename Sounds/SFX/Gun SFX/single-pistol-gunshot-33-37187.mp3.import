@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8gtf26wx4w5f"
+path="res://.godot/imported/single-pistol-gunshot-33-37187.mp3-fe2b498939bff8613d34d4a5838a1cfd.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/Gun SFX/single-pistol-gunshot-33-37187.mp3"
+dest_files=["res://.godot/imported/single-pistol-gunshot-33-37187.mp3-fe2b498939bff8613d34d4a5838a1cfd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

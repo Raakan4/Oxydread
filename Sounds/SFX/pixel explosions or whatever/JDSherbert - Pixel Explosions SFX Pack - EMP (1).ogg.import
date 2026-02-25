@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b0g8sp8fml026"
+path="res://.godot/imported/JDSherbert - Pixel Explosions SFX Pack - EMP (1).ogg-d06a6c15da9f6283fcedb7a48e530d1e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/pixel explosions or whatever/JDSherbert - Pixel Explosions SFX Pack - EMP (1).ogg"
+dest_files=["res://.godot/imported/JDSherbert - Pixel Explosions SFX Pack - EMP (1).ogg-d06a6c15da9f6283fcedb7a48e530d1e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
