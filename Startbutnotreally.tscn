@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://wmi5lq7ehewr"]
+
+[ext_resource type="Script" uid="uid://dsrqemt1ig47a" path="res://endingbutnotreally.gd" id="1_m8dfv"]
+[ext_resource type="PackedScene" uid="uid://ce11sbx8nsiui" path="res://startbutnotreally2.tscn" id="2_bxaqs"]
+[ext_resource type="PackedScene" uid="uid://ca66w18ee7yg1" path="res://Scenes/dialogue.tscn" id="2_ydhhh"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_m8dfv")
+TextArray2 = Array[String](["* Press E to advance Dialog", "* Long long ago...", "* The earth was green", "* However, that all changed", "* When the factories came", "* Driven by greed humanity has chopped down every remaining tree in the world", "* As Oxygen supplies decreased the nations went to war fighting for every last scrap of it", "* in the end there was nothing left..", "* all that remained were small communities continuing life despite the everything", "- A small village in banten 2088"])
+NameArray2 = Array[String](["", "", "", "", "", "", "", "", "", ""])
+changescenedestionation = ExtResource("2_bxaqs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 1668.0
+offset_top = -69.999985
+offset_right = 1708.0
+offset_bottom = -29.999985
+scale = Vector2(-46.73889, 22.476564)
+color = Color(0, 0, 0, 1)
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("2_ydhhh")]
+offset_left = -2.0
+offset_top = 440.0
+offset_right = -2.0
+offset_bottom = 440.0
+rotation = 0.0006910325
+TextArray = Array[String](["*Press E to advance Dialogue", "* Long long ago...", "* The earth was green and full of life", "* However, that all changed", "* When the factories came", "* Driven by greed humanity has chopped down every remaining tree in the world", "* As Oxygen supplies decreased the nations went to war fighting for every last scrap of it", "* in the end there was nothing left..", "* all that remained were small communities continuing life despite the everything", "- A small village in banten 2088"])
+NameArray = Array[String](["", "", "", "", "", "", "", "", "", ""])
+active = true
+
+[connection signal="DialogueFinished" from="CanvasLayer/Dialogue" to="." method="_on_dialogue_dialogue_finished"]

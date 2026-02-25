@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1vlkecbwu8o0"]
+
+[ext_resource type="PackedScene" uid="uid://ca66w18ee7yg1" path="res://Scenes/dialogue.tscn" id="1_fd4sf"]
+[ext_resource type="Script" uid="uid://dsrqemt1ig47a" path="res://endingbutnotreally.gd" id="1_iu0rm"]
+[ext_resource type="PackedScene" uid="uid://yjp4ws8uuc10" path="res://Scenes/main_menu.tscn" id="2_r5g2l"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_iu0rm")
+TextArray2 = Array[String](["* The seed was firmly planted into the village soil", "* and after only a month the tree grew big enough to supply oxygen to the village", "* historians theorize that the lab the seed was found in experimented with its growth rate which explains the unprecedentant growth", "* the single tree eventually grew into a massive forest", "* and very soon the village stood as a shining beacon in an otherwise dead wasteland", "* not much is known about asep after he saved his village", "* some accounts have spotted him around the jakarta wasteland", "* some other accounts reported that they had saw him travelling as far as the old city of surabaya", "* and so ends the tale of asep and his effort in both his village,", "* and possible even the world", "fin."])
+NameArray2 = Array[String](["", "", "", "", "", "", "", "", "", "", ""])
+changescenedestionation = ExtResource("2_r5g2l")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 1668.0
+offset_top = -69.999985
+offset_right = 1708.0
+offset_bottom = -29.999985
+scale = Vector2(-46.73889, 22.476564)
+color = Color(0, 0, 0, 1)
+
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("1_fd4sf")]
+offset_left = -2.0
+offset_top = 440.0
+offset_right = -2.0
+offset_bottom = 440.0
+rotation = 0.0006910325
+TextArray = Array[String](["* The seed was firmly planted into the village soil", "* and after only a month the tree grew big enough to supply oxygen to the village", "* historians theorize that the lab the seed was found in experimented with its growth rate which explains the unprecedentant growth", "* the single tree eventually grew into a massive forest", "* and very soon the village stood as a shining beacon in an otherwise dead wasteland", "* not much is known about asep after he saved his village", "* some accounts have spotted him around the jakarta wasteland", "* some others have reported that they had saw him travelling as far as the old city of surabaya", "* and so ends the tale of asep and his effort in both his village,", "* and possible even the world", "Fin"])
+NameArray = Array[String](["", "", "", "", "", "", "", "", "", "", ""])
+active = true
+
+[connection signal="DialogueFinished" from="CanvasLayer/Dialogue" to="." method="_on_dialogue_dialogue_finished"]
