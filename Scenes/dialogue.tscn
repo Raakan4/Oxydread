@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://ca66w18ee7yg1"]
+
+[ext_resource type="Script" uid="uid://cmqon5e6e67k7" path="res://dialogue.gd" id="1_dgfud"]
+[ext_resource type="FontFile" uid="uid://dggcrdfex1ep7" path="res://Fonts/Minecraft.ttf" id="2_p21q5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjl42"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.35156286, 0.35156295, 0.35156265, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5mcti"]
+font = ExtResource("2_p21q5")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_4hwkt"]
+font = ExtResource("2_p21q5")
+font_size = 21
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dgfud")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -72.0
+offset_right = 169.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pjl42")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 681.0
+offset_bottom = 207.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_pjl42")
+
+[node name="MainLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = 665.0
+offset_bottom = 190.0
+label_settings = SubResource("LabelSettings_5mcti")
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = -56.0
+offset_right = 142.0
+offset_bottom = -18.0
+label_settings = SubResource("LabelSettings_4hwkt")

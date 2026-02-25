@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d25ggeqvdha8r"]
+
+[ext_resource type="Script" uid="uid://bxtqwjxhgl6vd" path="res://Scenes/retreat_point.gd" id="1_edd6g"]
+
+[node name="RetreatPoint" type="Node2D"]
+script = ExtResource("1_edd6g")

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://drnwafjq0y1p2"]
+
+[ext_resource type="Script" uid="uid://dkn6ylb32yr13" path="res://Scripts/gameover.gd" id="1_y7nek"]
+[ext_resource type="FontFile" uid="uid://dggcrdfex1ep7" path="res://Fonts/Minecraft.ttf" id="2_5yue4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ot1a8"]
+
+[sub_resource type="Theme" id="Theme_egvjn"]
+
+[node name="Gameover" type="Control" unique_id=904375425]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y7nek")
+
+[node name="Label" type="Label" parent="." unique_id=1586561451]
+texture_filter = 1
+layout_mode = 0
+offset_left = -325.99997
+offset_top = 104.00001
+offset_right = -145.84006
+offset_bottom = 127.00001
+scale = Vector2(9.857908, 12.933405)
+theme_override_fonts/font = ExtResource("2_5yue4")
+theme_override_font_sizes/font_size = 105
+text = "Game Over"
+label_settings = SubResource("LabelSettings_ot1a8")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1508012275]
+layout_mode = 0
+offset_left = 410.00003
+offset_top = 382.00003
+offset_right = 596.0
+offset_bottom = 447.00003
+scale = Vector2(2.0664155, 1.7921748)
+theme = SubResource("Theme_egvjn")
+theme_override_fonts/font = ExtResource("2_5yue4")
+theme_override_font_sizes/font_size = 47
+disabled = true
+text = "RETRY"
+
+[node name="Return" type="Button" parent="." unique_id=989015179]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 514.0
+offset_right = 597.0
+offset_bottom = 579.0
+scale = Vector2(2.0664155, 1.7921748)
+theme = SubResource("Theme_egvjn")
+theme_override_fonts/font = ExtResource("2_5yue4")
+theme_override_font_sizes/font_size = 22
+disabled = true
+text = "Return To Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]

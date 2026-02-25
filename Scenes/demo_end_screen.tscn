@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv1lrs8xjupjw"]
+
+[ext_resource type="Script" uid="uid://d4nf6bvqg6e7u" path="res://demo_end_screen.gd" id="1_bt0md"]
+
+[node name="DemoEndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bt0md")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 60.0
+offset_right = 450.0
+offset_bottom = 83.0
+scale = Vector2(4.96, 4.24)
+text = "OXYDREAD"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 135.0
+offset_right = 392.0
+offset_bottom = 158.0
+scale = Vector2(4.96, 4.24)
+text = "COMING SOON"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 320.0
+offset_right = 703.0
+offset_bottom = 424.0
+disabled = true
+text = "Replay"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

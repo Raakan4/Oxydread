@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmvj4y8snu8y0"]
+
+[ext_resource type="Script" uid="uid://bbpc734uucghd" path="res://pre_boss_cutscene.gd" id="1_rg1j4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fe1b"]
+size = Vector2(903.5, 146.5)
+
+[node name="PreBossCutscene" type="Area2D"]
+script = ExtResource("1_rg1j4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+shape = SubResource("RectangleShape2D_1fe1b")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

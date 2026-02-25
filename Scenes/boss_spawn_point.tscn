@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2htboew7nn0s"]
+
+[ext_resource type="Script" uid="uid://dgty2dfviwdkm" path="res://boss_spawn_point.gd" id="1_fpj80"]
+
+[node name="BossSpawnPoint" type="Node2D" groups=["BossSpawnPoint"]]
+script = ExtResource("1_fpj80")

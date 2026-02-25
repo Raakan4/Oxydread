@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr27ecpkh6vsj"]
+
+[ext_resource type="Script" uid="uid://bvuqaaq7uguwv" path="res://Scripts/Melee.gd" id="1_jhaoy"]
+[ext_resource type="Texture2D" uid="uid://njtbwgnaswa2" path="res://Sprites/GUNS/PLACEHOLDER_GreatAxe.png" id="2_x3nbu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3nbu"]
+size = Vector2(50.33, 100)
+
+[node name="Melee" type="Node2D"]
+script = ExtResource("1_jhaoy")
+HitboxShape = SubResource("RectangleShape2D_x3nbu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.15636444, 0.010608673)
+rotation = -3.0545568
+scale = Vector2(0.2628969, 0.23905471)
+texture = ExtResource("2_x3nbu")
+offset = Vector2(100, -100)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(50, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

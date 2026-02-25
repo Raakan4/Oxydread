@@ -1,0 +1,121 @@
+[gd_scene load_steps=21 format=3 uid="uid://bests2csp3ito"]
+
+[ext_resource type="Script" uid="uid://ccuv04qudww85" path="res://Scenes/level_barrier.gd" id="1_khits"]
+[ext_resource type="Texture2D" uid="uid://bn830mja0jjku" path="res://Sprites/etc/WoodStack.png" id="1_tr3rk"]
+[ext_resource type="PackedScene" uid="uid://dp6ro83eb7e6d" path="res://Scenes/Interaction/interaction.tscn" id="3_jdvfx"]
+[ext_resource type="Texture2D" uid="uid://b8ciax64e36g4" path="res://Sprites/vfx/explosion/explosion4/explosion-d1.png" id="4_bsdwg"]
+[ext_resource type="Texture2D" uid="uid://di3il72sablth" path="res://Sprites/vfx/explosion/explosion4/explosion-d2.png" id="5_7gciq"]
+[ext_resource type="Texture2D" uid="uid://k2nq5dxrqj28" path="res://Sprites/vfx/explosion/explosion4/explosion-d3.png" id="6_7oo6c"]
+[ext_resource type="Texture2D" uid="uid://d07m1hnpn3ny0" path="res://Sprites/vfx/explosion/explosion4/explosion-d4.png" id="7_xddvg"]
+[ext_resource type="Texture2D" uid="uid://2fe1jsimhv0b" path="res://Sprites/vfx/explosion/explosion4/explosion-d5.png" id="8_6wlpo"]
+[ext_resource type="Texture2D" uid="uid://uiu70wr4qg8x" path="res://Sprites/vfx/explosion/explosion4/explosion-d6.png" id="9_3ufrm"]
+[ext_resource type="Texture2D" uid="uid://cwvla8bjusa35" path="res://Sprites/vfx/explosion/explosion4/explosion-d7.png" id="10_4i1t7"]
+[ext_resource type="Texture2D" uid="uid://0wbab4te1l6b" path="res://Sprites/vfx/explosion/explosion4/explosion-d8.png" id="11_oqt3t"]
+[ext_resource type="Texture2D" uid="uid://bcsgpcglyojrc" path="res://Sprites/vfx/explosion/explosion4/explosion-d9.png" id="12_nqv40"]
+[ext_resource type="Texture2D" uid="uid://v3ascbr48eq4" path="res://Sprites/vfx/explosion/explosion4/explosion-d10.png" id="13_7twqy"]
+[ext_resource type="Texture2D" uid="uid://buu0knqnd2e03" path="res://Sprites/vfx/explosion/explosion4/explosion-d11.png" id="14_r51de"]
+[ext_resource type="Texture2D" uid="uid://c61jrnq7wgx7h" path="res://Sprites/vfx/explosion/explosion4/explosion-d12.png" id="15_3nxi4"]
+[ext_resource type="AudioStream" uid="uid://bs2bwuatatc34" path="res://Sounds/SFX/pixel explosions or whatever/JDSherbert - Pixel Explosions SFX Pack - Explosion (Large - 2).ogg" id="16_o2klw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cgh2"]
+radius = 31.41
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jdvfx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cgh2"]
+size = Vector2(33, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5pwur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_bsdwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7gciq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7oo6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xddvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6wlpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3ufrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4i1t7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oqt3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nqv40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7twqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_r51de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3nxi4")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="LevelBarrier" type="Node2D" groups=["Interactable"]]
+script = ExtResource("1_khits")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_tr3rk")
+
+[node name="Interaction" parent="." instance=ExtResource("3_jdvfx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
+shape = SubResource("CircleShape2D_3cgh2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="DeleteTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_jdvfx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_3cgh2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -3)
+scale = Vector2(0.453125, 0.4453125)
+sprite_frames = SubResource("SpriteFrames_5pwur")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_o2klw")
+
+[node name="Explosion" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DeleteTimer" to="." method="_on_delete_timer_timeout"]
+[connection signal="timeout" from="Explosion" to="." method="_on_explosion_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

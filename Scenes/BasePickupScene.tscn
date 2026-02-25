@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnwljbk8pr0vj"]
+
+[ext_resource type="Script" uid="uid://bmi6v252ck215" path="res://Scripts/base_pickup_scene.gd" id="1_hxcw2"]
+[ext_resource type="Texture2D" uid="uid://dptw2vlitfxt0" path="res://Sprites/GUNS/Revolver.png" id="2_axlxn"]
+[ext_resource type="Script" uid="uid://bq7a5vf7k4ecm" path="res://interaction.gd" id="3_jmccm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axlxn"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nsv4v"]
+radius = 15.0
+
+[node name="PickupBaseNode" type="Area2D"]
+script = ExtResource("1_hxcw2")
+Type = "Ammo"
+
+[node name="PickupSprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 1.9999999)
+scale = Vector2(0.07373491, 0.0758362)
+texture = ExtResource("2_axlxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_axlxn")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+script = ExtResource("3_jmccm")
+Action_name = "Pickup"
+metadata/_custom_type_script = "uid://bq7a5vf7k4ecm"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_nsv4v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

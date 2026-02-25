@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://brx0laug66ioh"]
+
+[ext_resource type="Script" uid="uid://dectj1v1mia4j" path="res://Scripts/HitBoxBase_Scene.gd" id="1_bogy5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ij2m"]
+
+[node name="HitBoxBase" type="Area2D" groups=["Hitbox"]]
+script = ExtResource("1_bogy5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8ij2m")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

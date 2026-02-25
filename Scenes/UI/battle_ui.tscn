@@ -1,0 +1,212 @@
+[gd_scene load_steps=15 format=3 uid="uid://cl6mifx6kpqpn"]
+
+[ext_resource type="Script" uid="uid://cdx2ocqwhaehl" path="res://Scripts/battle_ui.gd" id="1_a7smn"]
+[ext_resource type="Shader" uid="uid://bk0f13gsy8ul5" path="res://Scenes/UI/HealingVignette.gdshader" id="2_w7saw"]
+[ext_resource type="Texture2D" uid="uid://d26lpcjrvbgem" path="res://Sprites/UI/New Piskel-4.png" id="3_j0qav"]
+[ext_resource type="FontFile" uid="uid://dggcrdfex1ep7" path="res://Fonts/Minecraft.ttf" id="4_a84gm"]
+[ext_resource type="Texture2D" uid="uid://bdx3or0igd8gi" path="res://Sprites/UI/New Piskel-3.png" id="5_a84gm"]
+[ext_resource type="Texture2D" uid="uid://3t07m8nn7jux" path="res://Sprites/UI/New Piskel-5.png" id="6_q10ve"]
+
+[sub_resource type="Animation" id="Animation_w7saw"]
+resource_name = "HealingVignette"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HealingVignette:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_xs5rh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_q10ve"]
+resource_name = "FadeToBlack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0jf0l"]
+resource_name = "FadeToNormal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j0qav"]
+_data = {
+&"FadeToBlack": SubResource("Animation_q10ve"),
+&"FadeToNormal": SubResource("Animation_0jf0l"),
+&"HealingVignette": SubResource("Animation_w7saw"),
+&"RESET": SubResource("Animation_xs5rh")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xs5rh"]
+shader = ExtResource("2_w7saw")
+shader_parameter/radius = 0.6000000285
+shader_parameter/softness = 0.9430000447925
+shader_parameter/intensity = 1.7590000835525
+shader_parameter/contrast = 1.918000067355
+shader_parameter/vignette_color = Color(0.19215687, 0.7294118, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q10ve"]
+font = ExtResource("4_a84gm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0jf0l"]
+font = ExtResource("4_a84gm")
+
+[node name="BattleUI" type="Control" groups=["BattleUI"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a7smn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j0qav")
+}
+
+[node name="HealingVignette" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xs5rh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1138.0
+offset_top = -506.0
+offset_right = -1138.0
+offset_bottom = -506.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.07, 1.07)
+
+[node name="HealingVignette2" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xs5rh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3010.0
+offset_top = -1701.0
+offset_right = 548.2803
+offset_bottom = 864.084
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.07, 1.07)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -285.0
+offset_top = -7.0
+offset_right = 14.0
+offset_bottom = 241.0
+texture = ExtResource("3_j0qav")
+
+[node name="AmmoLabel" type="Label" parent="TextureRect"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 100.0
+offset_right = 133.39438
+offset_bottom = 116.26984
+scale = Vector2(2.84, 2.52)
+text = "0/0"
+label_settings = SubResource("LabelSettings_q10ve")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1164.0
+offset_top = 4.0
+offset_right = -836.0
+offset_bottom = 234.0
+texture = ExtResource("5_a84gm")
+
+[node name="HealthLabel" type="Label" parent="TextureRect2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 33.999878
+offset_top = 91.0
+offset_right = 298.99988
+offset_bottom = 194.0
+scale = Vector2(2.6799994, 2.4334097)
+text = "Health: 100
+"
+label_settings = SubResource("LabelSettings_0jf0l")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1140.0
+offset_top = -503.0
+offset_right = -906.0
+offset_bottom = -253.0
+texture = ExtResource("6_q10ve")
+
+[node name="TimeLabel" type="Label" parent="TextureRect3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 59.0
+offset_top = 18.0
+offset_right = 97.0
+offset_bottom = 34.269836
+scale = Vector2(2.84, 2.52)
+text = "Time"
+label_settings = SubResource("LabelSettings_q10ve")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 240.0
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 339.99997
+offset_top = -607.99994
+offset_right = 379.99997
+offset_bottom = -567.99994
+scale = Vector2(-46.73889, 22.476564)
+color = Color(0, 0, 0, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

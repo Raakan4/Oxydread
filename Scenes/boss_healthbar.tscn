@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dccusdnyi1p4a"]
+
+[ext_resource type="Script" uid="uid://pjn88pj5eqvw" path="res://boss_healthbar.gd" id="1_0e5s7"]
+[ext_resource type="FontFile" uid="uid://dggcrdfex1ep7" path="res://Fonts/Minecraft.ttf" id="2_hxa44"]
+
+[sub_resource type="Theme" id="Theme_hxa44"]
+
+[sub_resource type="Theme" id="Theme_4o5vs"]
+default_font = ExtResource("2_hxa44")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o5vs"]
+bg_color = Color(0.59539765, 0.5912488, 0.57996315, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo6lw"]
+bg_color = Color(0.47262728, 0.6633598, 0.3799016, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uo6lw"]
+font = ExtResource("2_hxa44")
+
+[node name="BossHealthbar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hxa44")
+script = ExtResource("1_0e5s7")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_right = 370.0
+offset_bottom = 27.0
+theme = SubResource("Theme_4o5vs")
+theme_override_styles/background = SubResource("StyleBoxFlat_4o5vs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_uo6lw")
+max_value = 400.0
+rounded = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -20.0
+offset_right = 142.0
+offset_bottom = 3.0
+text = "Ucom - The Gatekeeper"
+label_settings = SubResource("LabelSettings_uo6lw")

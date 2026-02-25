@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccals83c8pxoc"]
+
+[ext_resource type="Script" uid="uid://bpdouv8k8g0cs" path="res://objectives.gd" id="1_whe8l"]
+[ext_resource type="FontFile" uid="uid://dggcrdfex1ep7" path="res://Fonts/Minecraft.ttf" id="2_1lemk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qbnt"]
+font = ExtResource("2_1lemk")
+
+[node name="Objectives" type="Control" groups=["Objective"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_whe8l")
+ObjectiveArray = Array[String]([""])
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 162.0
+offset_bottom = 24.0
+label_settings = SubResource("LabelSettings_6qbnt")
+autowrap_mode = 3

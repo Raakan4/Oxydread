@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://fuada3hj4ghv"]
+
+[ext_resource type="Script" uid="uid://bpqo31xwbschh" path="res://door.gd" id="1_p0e35"]
+[ext_resource type="PackedScene" uid="uid://dp6ro83eb7e6d" path="res://Scenes/Interaction/interaction.tscn" id="2_fahql"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ab4ky"]
+radius = 46.043457
+
+[node name="door" type="Node2D"]
+script = ExtResource("1_p0e35")
+
+[node name="Interaction" parent="." instance=ExtResource("2_fahql")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction"]
+scale = Vector2(1.8338884, -1.6464075)
+shape = SubResource("CircleShape2D_ab4ky")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

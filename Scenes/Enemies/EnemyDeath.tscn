@@ -1,0 +1,108 @@
+[gd_scene load_steps=15 format=3 uid="uid://xparypgys1pv"]
+
+[ext_resource type="Script" uid="uid://37rkwsh2jjde" path="res://Scripts/enemy_death.gd" id="1_17yiy"]
+[ext_resource type="Texture2D" uid="uid://brhq03iwhchyf" path="res://Sprites/vfx/explosion/explosion5/explosion-f1.png" id="2_hh4ld"]
+[ext_resource type="Texture2D" uid="uid://dftifd7p0w0fd" path="res://Sprites/vfx/explosion/explosion5/explosion-f2.png" id="3_5biy6"]
+[ext_resource type="Texture2D" uid="uid://cj81qhsy3ryqs" path="res://Sprites/vfx/explosion/explosion5/explosion-f3.png" id="4_vyl5p"]
+[ext_resource type="Texture2D" uid="uid://bqhra0isv7jtq" path="res://Sprites/vfx/explosion/explosion5/explosion-f4.png" id="5_vsctn"]
+[ext_resource type="Texture2D" uid="uid://diu06x8vw8wti" path="res://Sprites/vfx/explosion/explosion5/explosion-f5.png" id="6_khamq"]
+[ext_resource type="Texture2D" uid="uid://b35upps8e64cl" path="res://Sprites/vfx/explosion/explosion5/explosion-f6.png" id="7_e8qsf"]
+[ext_resource type="Texture2D" uid="uid://bcyujtjmihq01" path="res://Sprites/vfx/explosion/explosion5/explosion-f7.png" id="8_6tref"]
+[ext_resource type="Texture2D" uid="uid://blw02nrmhyqut" path="res://Sprites/vfx/explosion/explosion5/explosion-f8.png" id="9_g7dwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17yiy"]
+size = Vector2(200, 200)
+
+[sub_resource type="Curve" id="Curve_658cr"]
+_data = [Vector2(0.0058139563, 1), 0.0, 0.0, 0, 0, Vector2(0.9709303, 0.1685394), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfce5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hh4ld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5biy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vyl5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vsctn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_khamq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_e8qsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_6tref")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g7dwx")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_hh4ld"]
+offsets = PackedFloat32Array(0.15425532, 0.5505319)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5biy6"]
+gradient = SubResource("Gradient_hh4ld")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="EnemyDeath" type="Node2D"]
+script = ExtResource("1_17yiy")
+ExplosionHitboxShape = SubResource("RectangleShape2D_17yiy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = 7.068
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 60
+lifetime = 0.9
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_658cr")
+color = Color(0.7411765, 0, 0.050980393, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3.8146973e-06, -3.8146973e-06)
+scale = Vector2(4.3745375, 4.297581)
+sprite_frames = SubResource("SpriteFrames_kfce5")
+frame = 8
+frame_progress = 1.0
+speed_scale = 3.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+enabled = false
+color = Color(0.9958367, 0.29309124, 9.62615e-07, 1)
+energy = 1.89
+texture = SubResource("GradientTexture2D_5biy6")
+texture_scale = 2.0
+
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

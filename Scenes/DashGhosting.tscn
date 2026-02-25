@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://br76uqbn0u40p"]
+
+[ext_resource type="Texture2D" uid="uid://beijqhknwbses" path="res://Sprites/Player/Idle/AsepIdle1.png" id="1_kwu8c"]
+[ext_resource type="Script" uid="uid://dyd3ni8md5bem" path="res://Scripts/dash_ghosting.gd" id="2_kwu8c"]
+
+[node name="Ghost" type="Sprite2D"]
+modulate = Color(0.329158, 0.329158, 0.329158, 1)
+show_behind_parent = true
+scale = Vector2(2.431, 2.185)
+texture = ExtResource("1_kwu8c")
+script = ExtResource("2_kwu8c")

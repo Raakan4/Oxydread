@@ -1,0 +1,192 @@
+[gd_scene format=3 uid="uid://dnh7f6hhlm676"]
+
+[ext_resource type="Script" uid="uid://h1m58wxt4c5u" path="res://Scripts/player_controller.gd" id="1_eplni"]
+[ext_resource type="PackedScene" uid="uid://br76uqbn0u40p" path="res://Scenes/DashGhosting.tscn" id="2_rrwoe"]
+[ext_resource type="Shader" uid="uid://b75qfmlhdfabk" path="res://Scenes/PlayerHitFlash.tres" id="3_a8u7r"]
+[ext_resource type="Texture2D" uid="uid://beijqhknwbses" path="res://Sprites/Player/Idle/AsepIdle1.png" id="3_rrwoe"]
+[ext_resource type="Texture2D" uid="uid://cyocbbmtguo3e" path="res://Sprites/Player/Idle/AsepIdle2.png" id="4_a8u7r"]
+[ext_resource type="PackedScene" uid="uid://dr27ecpkh6vsj" path="res://Scenes/Melee.tscn" id="6_4lww5"]
+[ext_resource type="Texture2D" uid="uid://bmuwuxn8gok6t" path="res://Sprites/Player/playerwalk.png" id="6_s1vvi"]
+[ext_resource type="Script" uid="uid://dwiu225lyiv66" path="res://Scripts/Hitbox/HurtboxesRewrite.gd" id="7_n0rdu"]
+[ext_resource type="AudioStream" uid="uid://dnh8wlw54bwgg" path="res://Sounds/SFX/DSGNImpt_EXPLOSION-Cruncher_HY_PC-002.wav" id="8_e25u2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lww5"]
+shader = ExtResource("3_a8u7r")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irtnh"]
+atlas = ExtResource("6_s1vvi")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt8ni"]
+atlas = ExtResource("6_s1vvi")
+region = Rect2(0, 33, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lww5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rrwoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a8u7r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irtnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt8ni")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eplni"]
+size = Vector2(17.5, 44)
+
+[sub_resource type="Gradient" id="Gradient_crrsd"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rrwoe"]
+gradient = SubResource("Gradient_crrsd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a8u7r"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_max = 13.99
+color_ramp = SubResource("GradientTexture1D_rrwoe")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crrsd"]
+size = Vector2(18, 47)
+
+[sub_resource type="Gradient" id="Gradient_a8u7r"]
+colors = PackedColorArray(0.44894964, 1.3055467e-06, 9.62615e-08, 1, 0.5440292, 0.10245348, 0.16812447, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4lww5"]
+gradient = SubResource("Gradient_a8u7r")
+
+[sub_resource type="Curve" id="Curve_n0rdu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.34831464), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e25u2"]
+curve = SubResource("Curve_n0rdu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_s1vvi"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 30.0
+initial_velocity_max = 75.0
+gravity = Vector3(0, 89, 0)
+damping_min = 28.000002
+damping_max = 28.000002
+scale_max = 7.5
+scale_curve = SubResource("CurveTexture_e25u2")
+color_ramp = SubResource("GradientTexture1D_4lww5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e25u2"]
+size = Vector2(38.5, 57.5)
+
+[node name="PlayerController" type="CharacterBody2D" unique_id=1234651730 node_paths=PackedStringArray("RetreatNodes") groups=["Player"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_eplni")
+ghost_node = ExtResource("2_rrwoe")
+RetreatNodes = [NodePath("Node2D"), NodePath("Node2D3"), NodePath("Node2D4")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1106426079]
+position = Vector2(-7.62939e-06, 0)
+scale = Vector2(0.0675, 0.0904999)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1754160930]
+material = SubResource("ShaderMaterial_4lww5")
+position = Vector2(0, 0.2500003)
+scale = Vector2(0.26229507, 0.27857143)
+sprite_frames = SubResource("SpriteFrames_4lww5")
+animation = &"new_animation"
+autoplay = "default"
+frame = 1
+frame_progress = 0.060178343
+speed_scale = 0.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=615054948 groups=["Player"]]
+position = Vector2(-0.25, 3)
+shape = SubResource("RectangleShape2D_eplni")
+debug_color = Color(0.905882, 0.278431, 0.317647, 0.415686)
+
+[node name="HitstopInvisTimer" type="Timer" parent="." unique_id=553291576]
+wait_time = 0.08
+
+[node name="GhostTimer" type="Timer" parent="." unique_id=2032446560]
+wait_time = 0.062
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=963548524]
+show_behind_parent = true
+position = Vector2(1, 1)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_a8u7r")
+
+[node name="DashTimer" type="Timer" parent="." unique_id=178244158]
+
+[node name="DeathParticleTimer" type="Timer" parent="." unique_id=1645179061]
+
+[node name="PlayerHurtbox" type="Area2D" parent="." unique_id=1622948092 groups=["Player"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtbox" unique_id=1750218939]
+position = Vector2(1.9999998, 0.5)
+shape = SubResource("RectangleShape2D_crrsd")
+
+[node name="DeathParticle" type="GPUParticles2D" parent="." unique_id=803953912]
+position = Vector2(0, -14)
+emitting = false
+amount = 59
+lifetime = 2.21
+preprocess = 0.54
+speed_scale = 1.32
+explosiveness = 1.0
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_s1vvi")
+
+[node name="Melee" parent="." unique_id=463026451 instance=ExtResource("6_4lww5")]
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1692412237]
+position = Vector2(-346, -2)
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=1276467697]
+position = Vector2(1, -198)
+
+[node name="Node2D3" type="Node2D" parent="." unique_id=429778401]
+position = Vector2(287, -3)
+
+[node name="Node2D4" type="Node2D" parent="." unique_id=1858653574]
+position = Vector2(-2, 206)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=987875877 groups=["Enemy"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("7_n0rdu")
+isownedbyenemy = 1
+metadata/_custom_type_script = "uid://dwiu225lyiv66"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1712434443 groups=["Enemy"]]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_e25u2")
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="." unique_id=1000291789]
+stream = ExtResource("8_e25u2")
+
+[connection signal="timeout" from="HitstopInvisTimer" to="." method="_on_hitstop_invis_timer_timeout"]
+[connection signal="timeout" from="GhostTimer" to="." method="_on_ghost_timer_timeout"]
+[connection signal="area_entered" from="PlayerHurtbox" to="." method="_on_player_hurtbox_area_entered"]
+[connection signal="finished" from="DeathParticle" to="." method="_on_death_particle_finished"]
